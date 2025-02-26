@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from school import views
+from college import views as v
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('func/', views.myview , name= 'func'),
@@ -26,6 +27,10 @@ urlpatterns = [
     path('cl/', views.HomeClassView.as_view(), name = 'cl'),
     path('contactfun/',views.contactfun, name = 'contactfun'),
     path('contactcl/', views.ContactClassView.as_view(), name = 'contactcl'),
-    path('newsfun/',views.newsfun,name= 'newsfun')
-
+    path('newsfun/',views.newsfun,name= 'newsfun'),
+    path('newscl/',views.NewsClassView.as_view(),name='newscl'),
+#########################################
+    # path('', v.TemplateView.as_view(template_name='thome.html'),name='home')
+    path('',v.HomeTemplateView.as_view(),name= 'home'),
+    path('home/<int:cl>',v.HomeTemplateView.as_view(),name= 'home'),
 ]

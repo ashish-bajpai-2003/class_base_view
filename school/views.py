@@ -57,5 +57,13 @@ class ContactClassView(View):
 ##########################################################################
 
 def newsfun(request):
+    template_name = template_name
     context = {'info':'Ashish is a boy, that is learning Django.'}
-    return render(request, 'news.html', context)
+    return render(request, 'news.html',context)
+
+
+class NewsClassView(View):
+    def get(self,request):
+        context = {'info':'Ashish is a boy, that is learning Django.'}
+        return render(request,'news.html',context)
+    
